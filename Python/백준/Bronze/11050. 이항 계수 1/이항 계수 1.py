@@ -1,15 +1,16 @@
-import sys
-input = sys.stdin.readline
+N,K=map(int,input().split())
 
-N, K = map(int, input().split())
+Np=1
+Kp=1
+NmK=1
 
-result = 1
-for i in range(K):
-    result *= N
-    N -= 1
+for i in range(1,N+1):
+    Np*=i
+    
+for j in range(1,K+1):
+    Kp*=j
 
-divisor = 1
-for i in range(2, K+1):
-    divisor *= i
+for a in range(1,N-K+1):
+    NmK*=a
 
-print(result // divisor)
+print(Np//(Kp*NmK))
